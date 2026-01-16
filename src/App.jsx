@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react'; 
+import { Routes, Route, useLocation } from 'react-router-dom'; 
 import Navbar from "./components/navbar";
 import Hero from "./components/hero";
 import Footer from "./components/footer";
@@ -8,10 +9,18 @@ import Privacy from "./pages/privacy";
 import Terms from "./pages/terms";    
 
 function App() {
+  const { pathname } = useLocation();
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div>
       <Navbar />
       <Routes>
+
         <Route path="/" element={<Hero />} />
         <Route path="/tentang" element={<About />} />
         <Route path="/layanan" element={<ServicesPage />} />
