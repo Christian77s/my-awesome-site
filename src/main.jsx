@@ -1,17 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom' // Kita ganti ke HashRouter
 import App from './App.jsx'
 import './index.css'
 
-// Membuat root aplikasi dengan standar React 19
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-root.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* basename harus sama persis dengan nama repository GitHub kamu */}
-    <BrowserRouter basename="/my-awesome-site">
+    {/* Menggunakan HashRouter tidak memerlukan basename lagi */}
+    <HashRouter>
       <App />
-    </BrowserRouter>
-  </React.StrictMode>
-);
+    </HashRouter>
+  </React.StrictMode>,
+)
